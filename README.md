@@ -94,10 +94,13 @@ Symlinks let a file or folder "point" to another location. Editing the real file
 ```bash
 # At the root of your project:
 
-# 1. CLAUDE.md → AGENTS.md
+# 1. Create AGENTS.md
+touch AGENTS.md
+
+# 2. CLAUDE.md → AGENTS.md
 ln -s AGENTS.md CLAUDE.md
 
-# 2. .claude/ subfolders → .agents/ subfolders
+# 3. .claude/ subfolders → .agents/ subfolders
 mkdir -p .agents/skills .agents/commands .agents/rules .agents/hooks
 mkdir -p .claude
 
