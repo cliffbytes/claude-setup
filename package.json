@@ -1,0 +1,17 @@
+{
+  "name": "claude-setup",
+  "version": "1.0.0",
+  "description": "> A beginner-friendly guide to setting up a clean, maintainable, and secure Claude Code workspace.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cliffbytes/claude-setup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cliffbytes/claude-setup/issues"
+  },
+  "homepage": "https://github.com/cliffbytes/claude-setup#readme"
+}

@@ -1,0 +1,77 @@
+{
+  "hooks": {
+
+    // ─────────────────────────────────────────────
+    // SessionStart — runs when Claude Code launches
+    // Great for: injecting context, printing reminders
+    // ─────────────────────────────────────────────
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+
+    // ─────────────────────────────────────────────
+    // PreToolUse — runs BEFORE Claude executes a tool
+    // Exit 0  → allow
+    // Exit 2  → block (stderr message sent to Claude)
+    // ─────────────────────────────────────────────
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/pre-bash.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/pre-file-write.sh"
+          }
+        ]
+      }
+    ],
+
+    // ─────────────────────────────────────────────
+    // PostToolUse — runs AFTER Claude executes a tool
+    // Great for: auto-formatting, linting, logging
+    // ─────────────────────────────────────────────
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/post-file-write.sh"
+          }
+        ]
+      }
+    ],
+
+    // ─────────────────────────────────────────────
+    // Stop — runs when Claude thinks it's done
+    // Great for: notifications, summaries, cleanup
+    // ─────────────────────────────────────────────
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/on-stop.sh"
+          }
+        ]
+      }
+    ]
+
+  }
+}
