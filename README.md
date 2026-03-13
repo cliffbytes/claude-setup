@@ -24,7 +24,7 @@ your-project/
 ├── CLAUDE.md          → symlink to AGENTS.md  (Claude Code reads this automatically)
 ├── AGENTS.md          ← the real file you edit
 │
-├── .agents/           ← your source of truth
+├── .agents/           ← your single source of truth
 │   ├── skills/        ← reusable AI skill definitions
 │   ├── commands/      ← custom slash commands
 │   ├── rules/         ← behavior rules for Claude
